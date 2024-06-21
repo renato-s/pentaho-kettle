@@ -1344,7 +1344,7 @@ public class Spoon extends ApplicationWindow implements AddUndoPositionInterface
       for ( String varName : list ) {
         String varValue = sp.getProperty( varName, "" );
         if ( vars.getRowMeta().indexOfValue( varName ) < 0 && !varName.startsWith( Const.INTERNAL_VARIABLE_PREFIX ) ) {
-          vars.addValue( new ValueMetaString( varName ), varValue );
+          vars.addValue( new ValueMetaString( varName ), space.environmentSubstitute( varValue ) );
         }
       }
     }
@@ -1354,7 +1354,7 @@ public class Spoon extends ApplicationWindow implements AddUndoPositionInterface
       for ( String varName : list ) {
         String varValue = sp.getProperty( varName, "" );
         if ( vars.getRowMeta().indexOfValue( varName ) < 0 && !varName.startsWith( Const.INTERNAL_VARIABLE_PREFIX ) ) {
-          vars.addValue( new ValueMetaString( varName ), varValue );
+          vars.addValue( new ValueMetaString( varName ), space.environmentSubstitute( varValue ) );
         }
       }
     }
